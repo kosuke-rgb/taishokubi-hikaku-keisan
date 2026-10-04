@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>退職日シミュレーター｜月末退職と前日退職で社会保険料はいくら違う？</title>
+<meta name="description" content="退職日を月末にするか、月末の前日にするかで、退職月の社会保険料・国民年金・国民健康保険の負担がいくら変わるかを比較できる無料ツール。月給・前年の年収・退職後の予定を入れるだけで、どちらが安いかと将来の年金への影響の目安が分かります。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://webtools-labs.com/taishokubi-hikaku-keisan/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2370765779014113" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NKK5TXCQEK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NKK5TXCQEK');
+</script>
+<script>
+(function () {
+  var fired = false;
+  function fireOnce() {
+    if (fired) return;
+    fired = true;
+    if (typeof gtag === 'function') gtag('event', 'tool_used', { tool_name: document.title });
+  }
+  document.addEventListener('input', fireOnce, true);
+  document.addEventListener('change', fireOnce, true);
+})();
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230f766e'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' fill='white' font-family='sans-serif'%3E%EF%BF%A5%3C/text%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="webtools-labs">
+<meta property="og:title" content="退職日シミュレーター｜月末退職と前日退職、社会保険料はいくら違う？">
+<meta property="og:description" content="退職日を月末にするか前日にするかで、退職月の社会保険料・国民年金・国保の負担がいくら変わるかを比較できます。">
+<meta property="og:url" content="https://webtools-labs.com/taishokubi-hikaku-keisan/">
+<meta property="og:image" content="https://webtools-labs.com/taishokubi-hikaku-keisan/og-image.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="退職日シミュレーター｜月末退職と前日退職の比較">
+<meta name="twitter:description" content="月末退職と前日退職、どちらが得かを社会保険料・国民年金・国保で比較できる無料ツール。">
+<meta name="twitter:image" content="https://webtools-labs.com/taishokubi-hikaku-keisan/og-image.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "退職日シミュレーター",
+  "url": "https://webtools-labs.com/taishokubi-hikaku-keisan/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "description": "退職日を月末にするか月末の前日にするかで、退職月の社会保険料・国民年金・国民健康保険の負担がいくら変わるかを比較できる無料ツール。",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+  "inLanguage": "ja"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "月末に退職すると社会保険料が2か月分引かれるのはなぜですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "社会保険料は「資格を取得した月から、資格を失った日（退職日の翌日）が属する月の前月まで」かかります。月末に退職すると資格を失うのは翌月1日なので、退職した月の分まで保険料がかかります。会社によっては、前月分と退職月分の2か月分をまとめて最後の給与から引くため、2か月分引かれたように見えます。" }
+    },
+    {
+      "@type": "Question",
+      "name": "月末の前日に退職したほうが得だと聞きましたが本当ですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "必ずしも得ではありません。前日に退職すると、その月の会社の社会保険料はかかりませんが、代わりにその月の国民年金（令和8年度は月17,920円）と国民健康保険料を自分で払う必要があります。国民健康保険料は前年の所得や住んでいる市区町村で決まるため、条件によっては月末退職のほうが負担が少なくなります。また、厚生年金の加入期間が1か月短くなるぶん、将来の年金も少し減ります。" }
+    },
+    {
+      "@type": "Question",
+      "name": "退職した翌月1日から次の会社に入社する場合はどうなりますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "月末に退職して翌月1日に入社すれば、社会保険の切れ目がなく、国民年金や国民健康保険の手続きは不要です。一方、月末の前日に退職すると、退職した月の末日時点でどこの会社の社会保険にも入っていないため、その1か月分だけ国民年金・国民健康保険に加入して保険料を払う必要があります。" }
+    },
+    {
+      "@type": "Question",
+      "name": "任意継続を選ぶ場合はどう変わりますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "任意継続は、資格を失った日（退職日の翌日）から加入します。月末の前日に退職した場合、退職した月から任意継続の保険料（全額自己負担）がかかり、あわせて国民年金も自分で払うことになります。" }
+    },
+    {
+      "@type": "Question",
+      "name": "配偶者を扶養に入れている場合の注意点はありますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "会社の健康保険・厚生年金で配偶者を扶養に入れている場合、退職すると配偶者も扶養から外れます。月末の前日に退職すると、退職した月から配偶者も国民年金（第1号被保険者）・国民健康保険への加入が必要になり、負担がさらに増えることがあります。本ツールは本人分のみを計算しています。" }
+    },
+    {
+      "@type": "Question",
+      "name": "保険料は日割りになりますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "日割りにはなりません。健康保険・厚生年金・国民年金は、月単位で「その月の末日にどの制度に入っているか」で決まります。そのため、退職日が1日違うだけで、どの制度の保険料を払うかが変わります。" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://webtools-labs.com/" },
+    { "@type": "ListItem", "position": 2, "name": "退職日シミュレーター" }
+  ]
+}
+</script>
+<style>
+:root {
+  --bg: #ffffff;
+  --surface-2: #f7f7f7;
+  --ink: #1a1a1a;
+  --muted: #767676;
+  --line: #e3e3e3;
+  --accent: #0f766e;
+  --best-bg: #f0f8f6;
+  --warn-bg: #fff7ed;
+  --warn-ink: #9a5b00;
+  --bad-bg: #fef2f2;
+  --bad-ink: #b91c1c;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+.page { max-width: 720px; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+header.masthead { margin-bottom: 1.5rem; }
+h1 {
+  font-weight: 700;
+  font-size: clamp(1.4rem, 4.5vw, 1.7rem);
+  margin: 0 0 0.7rem;
+  letter-spacing: 0.01em;
+}
+p.lede { color: var(--muted); margin: 0; max-width: 60ch; font-size: 0.95rem; }
+.updated-note { display: block; margin-top: 0.9rem; font-size: 0.78rem; color: var(--muted); }
+
+.notice-box {
+  background: var(--warn-bg); color: var(--warn-ink); border-radius: 8px;
+  padding: 0.9rem 1.1rem; font-size: 0.85rem; margin-bottom: 2rem;
+}
+
+section { margin-bottom: 2.5rem; }
+h2 { font-size: 1.05rem; font-weight: 700; margin: 0 0 1rem; }
+
+.field-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem; }
+.field { flex: 1; min-width: 160px; }
+.field label { display: block; font-size: 0.83rem; color: var(--muted); margin-bottom: 0.35rem; }
+.field input[type="number"], .field select {
+  width: 100%; font-variant-numeric: tabular-nums; font-size: 1.05rem; font-family: inherit;
+  padding: 0.55rem 0.7rem; border: 1px solid var(--line); border-radius: 6px;
+  background: var(--bg); color: var(--ink);
+}
+.field input:focus, .field select:focus { outline: none; border-color: var(--accent); }
+
+.status-box { border-radius: 10px; padding: 1rem 1.2rem; margin-bottom: 1.25rem; font-size: 0.92rem; }
+.status-box.ok { background: var(--best-bg); color: var(--ink); }
+.status-box.bad { background: var(--bad-bg); color: var(--bad-ink); }
+.status-box strong { font-size: 1.1rem; }
+
+.summary-cards { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; }
+.summary-card {
+  flex: 1; min-width: 180px; background: var(--surface-2); border-radius: 10px;
+  padding: 1rem 1.2rem;
+}
+.summary-card .label { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.3rem; }
+.summary-card .value { font-size: 1.4rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.summary-card .sub { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; }
+
+table.compare { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+table.compare th, table.compare td {
+  padding: 0.55rem 0.5rem; text-align: right; border-bottom: 1px solid var(--line); vertical-align: top;
+}
+table.compare th:first-child, table.compare td:first-child { text-align: left; }
+table.compare thead th { color: var(--muted); font-weight: 500; font-size: 0.78rem; }
+table.compare td.num { font-variant-numeric: tabular-nums; }
+tr.total td { font-weight: 700; }
+tr.total { background: var(--best-bg); }
+
+.ref-table { overflow-x: auto; }
+.ref-table table { width: 100%; border-collapse: collapse; font-size: 0.86rem; min-width: 460px; }
+.ref-table th, .ref-table td { padding: 0.5rem 0.5rem; border-bottom: 1px solid var(--line); text-align: left; }
+.ref-table td.num { font-variant-numeric: tabular-nums; text-align: right; }
+.ref-table tr.highlight td { background: var(--best-bg); font-weight: 700; }
+tr.best td { background: var(--best-bg); font-weight: 700; }
+.ref-table-scroll { max-height: 420px; overflow-y: auto; }
+
+.disclaimer { font-size: 0.78rem; color: var(--muted); margin-top: 1rem; }
+
+.share-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.1rem; }
+.share-btn {
+  display: inline-flex; align-items: center; padding: 0.5rem 1rem; border-radius: 999px;
+  color: #fff; text-decoration: none; font-size: 0.82rem; font-weight: 700;
+}
+.share-btn:hover { opacity: 0.85; }
+.share-x { background: #000; }
+.share-line { background: #06c755; }
+.share-fb { background: #1877f2; }
+.share-hatena { background: #00a4de; }
+
+.ad-slot { margin: 2.5rem 0; text-align: center; min-height: 100px; }
+
+.pr-box {
+  border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 10px;
+  padding: 1.2rem 1.3rem; margin: 2.5rem 0; background: var(--best-bg);
+}
+.pr-box .pr-label {
+  display: inline-flex; align-items: center; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em;
+  color: #fff; background: var(--accent); border-radius: 999px;
+  padding: 0.2rem 0.7rem; margin-bottom: 0.8rem;
+}
+.pr-box p.pr-lede { color: var(--ink); font-size: 0.92rem; margin: 0 0 1rem; max-width: none; line-height: 1.7; }
+.pr-box .pr-banner { text-align: center; }
+.pr-box .pr-cta {
+  display: inline-block; background: var(--accent); color: #fff; font-weight: 700;
+  font-size: 0.85rem; padding: 0.6rem 1.3rem; border-radius: 999px; text-decoration: none;
+}
+.pr-box .pr-cta:hover { opacity: 0.85; }
+
+.contact-box textarea {
+  width: 100%; min-height: 6rem; font-family: inherit; font-size: 0.92rem;
+  padding: 0.7rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink);
+  resize: vertical; margin-bottom: 0.6rem;
+}
+.contact-box input[type="email"] {
+  width: 100%; font-family: inherit; font-size: 0.92rem;
+  padding: 0.6rem 0.7rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink);
+  margin-bottom: 0.6rem;
+}
+.contact-box textarea:focus, .contact-box input:focus { outline: none; border-color: var(--accent); }
+.contact-box button {
+  font-family: inherit; font-weight: 700; font-size: 0.9rem; padding: 0.6rem 1.4rem;
+  border: none; border-radius: 6px; background: var(--accent); color: #fff; cursor: pointer;
+}
+.contact-box button:disabled { opacity: 0.5; cursor: not-allowed; }
+.contact-status { font-size: 0.85rem; margin-top: 0.6rem; }
+.contact-status.ok { color: var(--accent); }
+.contact-status.err { color: #b91c1c; }
+
+footer.site-footer {
+  margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line);
+  font-size: 0.78rem; color: var(--muted);
+}
+footer.site-footer p { margin: 0 0 0.5rem; }
+footer.site-footer a { color: var(--accent); }
+
+.faq-item { border-bottom: 1px solid var(--line); padding: 0.9rem 0; }
+.faq-item:last-child { border-bottom: none; }
+.faq-item summary {
+  cursor: pointer; font-weight: 700; font-size: 0.92rem; list-style: none;
+  position: relative; padding-right: 1.6rem;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+'; position: absolute; right: 0; top: 0; color: var(--accent); font-weight: 700; font-size: 1.1rem;
+}
+.faq-item[open] summary::after { content: '−'; }
+.faq-item p { margin: 0.7rem 0 0; color: var(--muted); font-size: 0.88rem; }
+.breadcrumb { font-size: 0.78rem; color: var(--muted); margin-bottom: 1.1rem; }
+.breadcrumb a { color: var(--accent); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="page">
+  <nav class="breadcrumb" aria-label="パンくずリスト"><a href="https://webtools-labs.com/">ホーム</a> / 退職日シミュレーター</nav>
+  <header class="masthead">
+    <h1>退職日シミュレーター｜月末退職と前日退職の比較</h1>
+    <p class="lede">退職日を「月末」にするか「月末の前日」にするかで、退職した月の社会保険料・国民年金・国民健康保険の負担がいくら変わるかを比較できます。</p>
+    <span class="updated-note">制度・料率 最終確認日: 2026年10月4日（日本年金機構・協会けんぽ東京支部・練馬区の令和8年度の情報にもとづく）</span>
+  </header>
+
+  <div class="notice-box">
+    ⚠️ 社会保険の資格は<strong>退職日の翌日</strong>に失われ、保険料は<strong>資格を失った日が属する月の前月分まで</strong>かかります（<a href="https://www.nenkin.go.jp/section/faq/kounen/hihokensha/20140902-01.html" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">日本年金機構</a>）。そのため10月31日に退職すると10月分の会社の社会保険料がかかり、10月30日に退職すると10月分は国民年金・国民健康保険などを自分で払うことになります。本ツールは本人分のみの目安で、健康保険料は協会けんぽ東京支部、国民健康保険料は東京都特別区の令和8年度の料率で計算しています。
+  </div>
+
+  <section>
+    <h2>「月末の前日に辞めると得」は本当？</h2>
+    <p>退職日を月末の前日にすると、退職した月の会社の社会保険料（健康保険・厚生年金）が給与から引かれないため、「前日退職のほうが手取りが多い」と言われることがあります。ただし、その月は会社の保険に入っていない状態になるため、国民年金（令和8年度は月17,920円）と国民健康保険料を自分で払う必要があります。</p>
+    <p>国民健康保険料は前年の所得と住んでいる市区町村で決まり、収入によっては会社の社会保険料より高くなります。さらに、厚生年金の加入期間が1か月短くなるぶん、将来受け取る年金も少し減ります。どちらが得かは人によって違うので、月給・前年の年収・退職後の予定を入れて比べてみましょう。</p>
+  </section>
+
+  <section>
+    <h2>あなたの条件で比較</h2>
+    <div class="field-row">
+      <div class="field">
+        <label for="monthlyWage">今の月給（額面・円）</label>
+        <input type="number" id="monthlyWage" min="0" step="10000" value="300000">
+      </div>
+      <div class="field">
+        <label for="annualIncome">前年の年収（額面・円）</label>
+        <input type="number" id="annualIncome" min="0" step="100000" value="4000000">
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label for="ageGroup">年齢</label>
+        <select id="ageGroup">
+          <option value="under40">40歳未満</option>
+          <option value="over40">40歳〜64歳</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="plan">退職後の予定</label>
+        <select id="plan">
+          <option value="none">しばらく働かない（国保＋国民年金）</option>
+          <option value="nini">任意継続にする（＋国民年金）</option>
+          <option value="next">翌月1日から次の会社に入社</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="statusBox" class="status-box"></div>
+    <div class="summary-cards" id="summaryCards"></div>
+
+    <div style="overflow-x:auto">
+      <table class="compare">
+        <thead>
+          <tr><th>退職した月の負担（本人分）</th><th class="num">月末に退職</th><th class="num">月末の前日に退職</th></tr>
+        </thead>
+        <tbody id="resultBody"></tbody>
+      </table>
+    </div>
+    <p class="disclaimer">会社の社会保険料は月給を標準報酬月額とみなした概算です（実際は等級表で決まります）。国民健康保険料は前年の年収から計算した年額の12分の1（1か月分）、任意継続保険料は標準報酬月額32万円を上限として計算しています。所得が低い世帯は国保の均等割が2〜7割軽減されるため、さらに安くなる場合があります。退職後に失業して国保の軽減を受ける場合や、自治体・健康保険組合によっても金額は変わります。</p>
+    <div class="share-row" id="shareRow">
+      <a class="share-btn share-x" id="shareX" href="#" target="_blank" rel="noopener">𝕏でシェア</a>
+      <a class="share-btn share-line" id="shareLine" href="#" target="_blank" rel="noopener">LINEで送る</a>
+      <a class="share-btn share-fb" id="shareFb" href="#" target="_blank" rel="noopener">Facebookでシェア</a>
+      <a class="share-btn share-hatena" id="shareHatena" href="#" target="_blank" rel="noopener">はてブする</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>退職日で何が変わる？早見表</h2>
+    <div class="ref-table">
+      <table>
+        <thead><tr><th>項目</th><th>月末に退職（例: 10月31日）</th><th>月末の前日に退職（例: 10月30日）</th></tr></thead>
+        <tbody>
+          <tr><td>資格を失う日</td><td>11月1日</td><td>10月31日</td></tr>
+          <tr><td>10月分の会社の社会保険料</td><td>かかる（給与から天引き）</td><td>かからない</td></tr>
+          <tr><td>10月分の国民年金・国保</td><td>不要</td><td>必要（任意継続なら任意継続保険料）</td></tr>
+          <tr><td>厚生年金の加入期間</td><td>10月まで</td><td>9月まで（1か月短い）</td></tr>
+          <tr><td>翌月1日に次の会社へ入社する場合</td><td>切れ目なし・手続き不要</td><td>10月分だけ国民年金・国保の手続きが必要</td></tr>
+          <tr><td>最後の給与から引かれる保険料</td><td>2か月分になる場合がある</td><td>1か月分（前月分）</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>計算例: 月給30万円・前年の年収400万円・40歳未満・しばらく働かない場合</h2>
+    <p>デフォルトで入力されている条件で計算してみます。</p>
+    <div class="ref-table">
+      <table>
+        <thead><tr><th>項目</th><th class="num">月末に退職</th><th class="num">前日に退職</th></tr></thead>
+        <tbody>
+          <tr><td>健康保険料（本人負担。子ども・子育て支援金を含む）</td><td class="num">15,120円</td><td class="num">−</td></tr>
+          <tr><td>厚生年金保険料（本人負担 9.15%）</td><td class="num">27,450円</td><td class="num">−</td></tr>
+          <tr><td>国民年金保険料</td><td class="num">−</td><td class="num">17,920円</td></tr>
+          <tr><td>国民健康保険料（1か月分）</td><td class="num">−</td><td class="num">26,132円</td></tr>
+          <tr class="total"><td>退職した月の負担</td><td class="num">42,570円</td><td class="num">44,052円</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="disclaimer">この条件では、月末に退職したほうが1,482円安く、さらに厚生年金の加入期間が1か月長くなるぶん、将来の年金（報酬比例部分）が年に約1,600円増える計算です。前年の年収が低い人ほど国民健康保険料が安くなるため、前日退職のほうが安くなることもあります。</p>
+  </section>
+
+  <div class="pr-box">
+    <span class="pr-label">次のステップ</span>
+    <p class="pr-lede">退職日が決まったら、有給休暇を使い切る場合の最終出社日や、退職後の健康保険（国保か任意継続か）もあわせて確認しておきましょう。</p>
+    <div class="pr-banner">
+      <a href="https://webtools-labs.com/taishoku-yukyu-keisan/" class="pr-cta">退職時の有給消化シミュレーター</a>
+      <a href="https://webtools-labs.com/taishokugo-hoken-hikaku-keisan/" class="pr-cta" style="margin-left:0.6rem;">退職後の健康保険 比較</a>
+    </div>
+  </div>
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-2370765779014113"
+      data-ad-slot="3021985784"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <section>
+    <h2>よくある質問</h2>
+    <details class="faq-item">
+      <summary>月末に退職すると社会保険料が2か月分引かれるのはなぜですか？</summary>
+      <p>社会保険料は「資格を取得した月から、資格を失った日（退職日の翌日）が属する月の前月まで」かかります。月末に退職すると資格を失うのは翌月1日なので、退職した月の分まで保険料がかかります。会社によっては、前月分と退職月分の2か月分をまとめて最後の給与から引くため、2か月分引かれたように見えます。</p>
+    </details>
+    <details class="faq-item">
+      <summary>月末の前日に退職したほうが得だと聞きましたが本当ですか？</summary>
+      <p>必ずしも得ではありません。前日に退職すると、その月の会社の社会保険料はかかりませんが、代わりにその月の国民年金（令和8年度は月17,920円）と国民健康保険料を自分で払う必要があります。国民健康保険料は前年の所得や住んでいる市区町村で決まるため、条件によっては月末退職のほうが負担が少なくなります。また、厚生年金の加入期間が1か月短くなるぶん、将来の年金も少し減ります。</p>
+    </details>
+    <details class="faq-item">
+      <summary>退職した翌月1日から次の会社に入社する場合はどうなりますか？</summary>
+      <p>月末に退職して翌月1日に入社すれば、社会保険の切れ目がなく、国民年金や国民健康保険の手続きは不要です。一方、月末の前日に退職すると、退職した月の末日時点でどこの会社の社会保険にも入っていないため、その1か月分だけ国民年金・国民健康保険に加入して保険料を払う必要があります。</p>
+    </details>
+    <details class="faq-item">
+      <summary>任意継続を選ぶ場合はどう変わりますか？</summary>
+      <p>任意継続は、資格を失った日（退職日の翌日）から加入します。月末の前日に退職した場合、退職した月から任意継続の保険料（全額自己負担）がかかり、あわせて国民年金も自分で払うことになります。</p>
+    </details>
+    <details class="faq-item">
+      <summary>配偶者を扶養に入れている場合の注意点はありますか？</summary>
+      <p>会社の健康保険・厚生年金で配偶者を扶養に入れている場合、退職すると配偶者も扶養から外れます。月末の前日に退職すると、退職した月から配偶者も国民年金（第1号被保険者）・国民健康保険への加入が必要になり、負担がさらに増えることがあります。本ツールは本人分のみを計算しています。</p>
+    </details>
+    <details class="faq-item">
+      <summary>保険料は日割りになりますか？</summary>
+      <p>日割りにはなりません。健康保険・厚生年金・国民年金は、月単位で「その月の末日にどの制度に入っているか」で決まります。そのため、退職日が1日違うだけで、どの制度の保険料を払うかが変わります。</p>
+    </details>
+  </section>
+
+  <section class="contact-box">
+    <h2>ご意見・追加してほしい機能</h2>
+    <p class="lede" style="margin-bottom:0.9rem;">気づいたことや、あったら便利な機能があれば教えてください。</p>
+    <form id="contactForm">
+      <input type="email" id="contactEmail" placeholder="返信が必要な場合はメールアドレス（任意）">
+      <textarea id="contactMessage" placeholder="ご意見・ご要望をどうぞ" required></textarea>
+      <button type="submit" id="contactSubmit">送信する</button>
+      <p class="contact-status" id="contactStatus"></p>
+    </form>
+  </section>
+
+  <footer class="site-footer">
+    <p>本ツールは本人分の保険料のみを計算する簡易シミュレーターです。会社の社会保険料は月給を標準報酬月額とみなし、協会けんぽ東京支部（健康保険9.85%・介護保険1.62%・子ども・子育て支援金0.23%）と厚生年金18.3%の本人負担（折半）で計算しています。国民健康保険料は東京都特別区の令和8年度料率、国民年金保険料は令和8年度の月額17,920円です。健康保険組合に加入している場合や、お住まいの市区町村によって金額は異なります。正確な金額は勤務先・年金事務所・市区町村でご確認ください。</p>
+    <p>あわせて使える：
+      <a href="https://webtools-labs.com/frima-tesuryo-hikaku/">フリマ手数料計算・比較ツール</a> ／
+      <a href="https://webtools-labs.com/frima-hasso-hikaku/">フリマ配送方法・送料比較ツール</a> ／
+      <a href="https://webtools-labs.com/frima-tedori-simulator/">フリマ手取りシミュレーター</a> ／
+      <a href="https://webtools-labs.com/yukyu-hiyou-keisan/">有給休暇 付与日数計算ツール</a> ／
+      <a href="https://webtools-labs.com/revolving-risoku-keisan/">リボ払い・分割払い 実質利息計算ツール</a> ／
+      <a href="https://webtools-labs.com/taishoku-yukyu-keisan/">退職時の有給消化シミュレーター</a> ／
+      <a href="https://webtools-labs.com/fuyou-no-kabe-keisan/">扶養の壁チェッカー</a> ／
+      <a href="https://webtools-labs.com/tedori-keisan/">手取り計算ツール</a> ／
+      <a href="https://webtools-labs.com/taishokukin-zei-keisan/">退職金の税金計算ツール</a> ／
+      <a href="https://webtools-labs.com/taishokugo-hoken-hikaku-keisan/">退職後の健康保険 比較シミュレーター</a> ／
+      <a href="https://webtools-labs.com/sankyu-ikuji-teate-keisan/">産休・育休手当金シミュレーター</a> ／
+      <a href="https://webtools-labs.com/zangyodai-keisan/">残業代計算ツール</a> ／
+      <a href="https://webtools-labs.com/shitsugyo-hoken-keisan/">失業保険（基本手当）シミュレーター</a> ／
+      <a href="https://webtools-labs.com/jikyu-nenshu-keisan/">時給から年収・月収を計算</a> ／
+      <a href="https://webtools-labs.com/yubin-kitte-keisan/">郵便物の切手代早見表</a> ／
+      <a href="https://webtools-labs.com/bonus-tedori-keisan/">賞与手取り計算ツール</a> ／
+      <a href="https://webtools-labs.com/shoubyou-teate-keisan/">傷病手当金計算ツール</a> ／
+      <a href="https://webtools-labs.com/juminzei-keisan/">住民税計算ツール</a> ／
+      <a href="https://webtools-labs.com/tsukin-teate-keisan/">通勤手当の非課税限度額計算ツール</a> ／
+      <a href="https://webtools-labs.com/tedori-gyakusan-keisan/">手取りから逆算する年収計算ツール</a> ／
+      <a href="https://webtools-labs.com/shakaihoken-uchiwake-keisan/">給与の社会保険料 内訳計算ツール</a> ／
+      <a href="https://webtools-labs.com/fukugyo-shinkoku-keisan/">副業の確定申告 要否チェッカー</a> ／
+      <a href="https://webtools-labs.com/nencho-kanpu-keisan/">年末調整 還付金シミュレーター</a> ／
+      <a href="https://webtools-labs.com/iryouhi-koujo-keisan/">医療費控除 計算ツール</a> ／
+      <a href="https://webtools-labs.com/frima-kakuteishinkoku-checker/">フリマの確定申告 要否チェッカー</a> ／
+      <a href="https://webtools-labs.com/ideco-setsuzei-keisan/">iDeCo（確定拠出年金）節税シミュレーター</a> ／
+      <a href="https://webtools-labs.com/tokutei-shinzoku-keisan/">特定親族特別控除 計算ツール</a> ／
+      <a href="https://webtools-labs.com/saitei-chingin-checker/">最低賃金チェッカー</a>
+    </p>
+    <p>当サイトは広告を掲載する場合があります。</p>
+    <p><a href="https://webtools-labs.com/about/">運営者情報</a> ／ <a href="https://webtools-labs.com/privacy/">プライバシーポリシー</a></p>
+  </footer>
+</div>
+
+<script>
+(function () {
+  function yen(n) { return Math.round(n).toLocaleString('ja-JP') + '円'; }
+
+  // 令和8年度の料率（協会けんぽ東京支部・日本年金機構・こども家庭庁・練馬区）
+  var KENPO_RATE = 0.0985;          // 健康保険（東京支部、令和8年3月分から）
+  var KAIGO_RATE = 0.0162;          // 介護保険（40〜64歳）
+  var KOSODATE_RATE = 0.0023;       // 子ども・子育て支援金（令和8年4月分から）
+  var KOUSEI_RATE = 0.183;          // 厚生年金
+  var KOKUMIN_NENKIN = 17920;       // 国民年金（令和8年度・月額）
+  var NINI_CAP = 320000;            // 任意継続の標準報酬月額の上限（令和8年度）
+  var HOUSHU_HIREI_PER_MONTH = 5.481 / 1000; // 報酬比例部分の給付乗率（平成15年4月以降）
+
+  // 国保は前年（令和7年）の所得で計算するため、令和7年分の給与所得控除（最低保障額65万円）を使う
+  function salaryDeductionR7(income) {
+    if (income <= 1900000) return Math.min(income, 650000);
+    if (income <= 3600000) return Math.round(income * 0.3 + 80000);
+    if (income <= 6600000) return Math.round(income * 0.2 + 440000);
+    if (income <= 8500000) return Math.round(income * 0.1 + 1100000);
+    return 1950000;
+  }
+
+  function kokuhoMonthly(annualIncome, ageGroup) {
+    var salaryIncome = Math.max(0, annualIncome - salaryDeductionR7(annualIncome));
+    var base = Math.max(0, salaryIncome - 430000);
+    var iryo = Math.min(base * 0.0751 + 47600, 670000);
+    var shien = Math.min(base * 0.0280 + 17600, 260000);
+    var kaigo = ageGroup === 'over40' ? Math.min(base * 0.0243 + 17800, 170000) : 0;
+    var kosodate = Math.min(base * 0.0027 + 1873, 30000);
+    return Math.round((Math.round(iryo) + Math.round(shien) + Math.round(kaigo) + Math.round(kosodate)) / 12);
+  }
+
+  function calc(monthlyWage, annualIncome, ageGroup, plan) {
+    var healthRate = KENPO_RATE + KOSODATE_RATE + (ageGroup === 'over40' ? KAIGO_RATE : 0);
+    var endHealth = Math.round(monthlyWage * healthRate / 2);
+    var endPension = Math.round(monthlyWage * KOUSEI_RATE / 2);
+    var endTotal = endHealth + endPension;
+
+    var rows = [
+      ['健康保険料（本人負担）', endHealth, null],
+      ['厚生年金保険料（本人負担）', endPension, null]
+    ];
+    var prevTotal;
+    if (plan === 'nini') {
+      var nini = Math.round(Math.min(monthlyWage, NINI_CAP) * healthRate);
+      rows.push(['任意継続の保険料（全額自己負担）', null, nini]);
+      rows.push(['国民年金保険料', null, KOKUMIN_NENKIN]);
+      prevTotal = nini + KOKUMIN_NENKIN;
+    } else {
+      var kokuho = kokuhoMonthly(annualIncome, ageGroup);
+      rows.push(['国民健康保険料（1か月分）', null, kokuho]);
+      rows.push(['国民年金保険料', null, KOKUMIN_NENKIN]);
+      prevTotal = kokuho + KOKUMIN_NENKIN;
+    }
+    var pensionPlus = Math.round(monthlyWage * HOUSHU_HIREI_PER_MONTH);
+    return { endTotal: endTotal, prevTotal: prevTotal, rows: rows, pensionPlus: pensionPlus };
+  }
+
+  var monthlyWageInput = document.getElementById('monthlyWage');
+  var annualIncomeInput = document.getElementById('annualIncome');
+  var ageGroupInput = document.getElementById('ageGroup');
+  var planInput = document.getElementById('plan');
+  var statusBox = document.getElementById('statusBox');
+  var summaryCards = document.getElementById('summaryCards');
+  var resultBody = document.getElementById('resultBody');
+  var shareX = document.getElementById('shareX');
+  var shareLine = document.getElementById('shareLine');
+  var shareFb = document.getElementById('shareFb');
+  var shareHatena = document.getElementById('shareHatena');
+
+  function setShareLinks(text, url) {
+    shareX.href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url);
+    shareLine.href = 'https://line.me/R/msg/text/?' + encodeURIComponent(text + '\n' + url);
+    shareFb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) + '&quote=' + encodeURIComponent(text);
+    shareHatena.href = 'https://b.hatena.ne.jp/entry/panel/?url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(text);
+  }
+
+  function render() {
+    var monthlyWage = Math.max(0, Number(monthlyWageInput.value) || 0);
+    var annualIncome = Math.max(0, Number(annualIncomeInput.value) || 0);
+    var plan = planInput.value;
+    var r = calc(monthlyWage, annualIncome, ageGroupInput.value, plan);
+    var diff = r.prevTotal - r.endTotal;
+
+    if (diff > 0) {
+      statusBox.className = 'status-box ok';
+      statusBox.innerHTML = '✅ この条件では<strong>月末に退職したほうが ' + yen(diff) + ' 安く</strong>なります。さらに厚生年金の加入期間が1か月長くなり、将来の年金が年に約' + yen(r.pensionPlus) + '増える計算です。';
+    } else if (diff < 0) {
+      statusBox.className = 'status-box ok';
+      statusBox.innerHTML = 'この条件では<strong>月末の前日に退職したほうが ' + yen(-diff) + ' 安く</strong>なります。ただし厚生年金の加入期間が1か月短くなり、将来の年金が年に約' + yen(r.pensionPlus) + '少なくなる点も考えておきましょう。';
+    } else {
+      statusBox.className = 'status-box ok';
+      statusBox.innerHTML = 'この条件では、退職した月の負担はほぼ同じです。';
+    }
+    if (plan === 'next') {
+      statusBox.innerHTML += '<br>※翌月1日に入社する場合、月末に退職すれば社会保険に切れ目がなく、国民年金・国保の手続きも不要です。';
+    }
+
+    summaryCards.innerHTML =
+      '<div class="summary-card"><div class="label">月末に退職</div><div class="value">' + yen(r.endTotal) + '</div><div class="sub">会社の社会保険料（本人分）</div></div>' +
+      '<div class="summary-card"><div class="label">月末の前日に退職</div><div class="value">' + yen(r.prevTotal) + '</div><div class="sub">' + (plan === 'nini' ? '任意継続＋国民年金' : '国保＋国民年金') + '</div></div>' +
+      '<div class="summary-card"><div class="label">将来の年金への影響</div><div class="value">年 約' + yen(r.pensionPlus) + '</div><div class="sub">月末退職で厚生年金が1か月長くなる分</div></div>';
+
+    resultBody.innerHTML = r.rows.map(function (row) {
+      return '<tr><td>' + row[0] + '</td><td class="num">' + (row[1] === null ? '−' : yen(row[1])) + '</td><td class="num">' + (row[2] === null ? '−' : yen(row[2])) + '</td></tr>';
+    }).join('') +
+      '<tr class="total"><td>退職した月の負担</td><td class="num">' + yen(r.endTotal) + '</td><td class="num">' + yen(r.prevTotal) + '</td></tr>';
+
+    var shareText = '月末退職と前日退職、退職月の負担は ' + yen(r.endTotal) + ' と ' + yen(r.prevTotal) + ' でした\n\n退職日シミュレーター';
+    setShareLinks(shareText, 'https://webtools-labs.com/taishokubi-hikaku-keisan/');
+  }
+
+  [monthlyWageInput, annualIncomeInput, ageGroupInput, planInput].forEach(function (el) {
+    el.addEventListener('input', render);
+    el.addEventListener('change', render);
+  });
+  render();
+
+  var WEB3FORMS_ACCESS_KEY = '4551c9fd-4327-4bd4-97e0-8b93d85fd077';
+  var contactForm = document.getElementById('contactForm');
+  var contactStatus = document.getElementById('contactStatus');
+  var contactSubmit = document.getElementById('contactSubmit');
+
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    contactSubmit.disabled = true;
+    contactStatus.textContent = '送信中...';
+    contactStatus.className = 'contact-status';
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: '退職日シミュレーターへのお問い合わせ',
+        email: document.getElementById('contactEmail').value || 'noreply@example.com',
+        message: document.getElementById('contactMessage').value
+      })
+    }).then(function (res) { return res.json(); }).then(function (data) {
+      contactSubmit.disabled = false;
+      if (data.success) {
+        contactStatus.textContent = '送信しました。ありがとうございます！';
+        contactStatus.className = 'contact-status ok';
+        contactForm.reset();
+      } else {
+        contactStatus.textContent = '送信に失敗しました。時間をおいて再度お試しください。';
+        contactStatus.className = 'contact-status err';
+      }
+    }).catch(function () {
+      contactSubmit.disabled = false;
+      contactStatus.textContent = '送信に失敗しました。時間をおいて再度お試しください。';
+      contactStatus.className = 'contact-status err';
+    });
+  });
+})();
+</script>
+</body>
+</html>
