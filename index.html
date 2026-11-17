@@ -179,7 +179,7 @@ tr.total td { font-weight: 700; }
 tr.total { background: var(--best-bg); }
 
 .ref-table { overflow-x: auto; }
-.ref-table table { width: 100%; border-collapse: collapse; font-size: 0.86rem; min-width: 460px; }
+.ref-table table { width: 100%; border-collapse: collapse; font-size: 0.86rem; min-width: 0; }
 .ref-table th, .ref-table td { padding: 0.5rem 0.5rem; border-bottom: 1px solid var(--line); text-align: left; }
 .ref-table td.num { font-variant-numeric: tabular-nums; text-align: right; }
 .ref-table tr.highlight td { background: var(--best-bg); font-weight: 700; }
@@ -261,6 +261,15 @@ footer.site-footer a { color: var(--accent); }
 .breadcrumb { font-size: 0.78rem; color: var(--muted); margin-bottom: 1.1rem; }
 .breadcrumb a { color: var(--accent); text-decoration: none; }
 .breadcrumb a:hover { text-decoration: underline; }
+/* スマホで表が画面からはみ出さないように（2026-11-17） */
+@media (max-width: 600px) {
+  .ref-table table { font-size: 0.8rem; }
+  .ref-table th, .ref-table td { padding: 0.45rem 0.3rem; }
+  .ref-table th, .ref-table td:first-child { white-space: normal; }
+  .ref-table td.nw { white-space: nowrap; }
+  .ref-table th:first-child, .ref-table td:first-child { min-width: 5em; position: sticky; left: 0; z-index: 1; background: var(--bg); box-shadow: 1px 0 0 var(--line); }
+  .ref-table tr.best td:first-child, .ref-table tr.total td:first-child, .ref-table tr.next td:first-child, .ref-table tr.highlight td:first-child { background: var(--best-bg, var(--bg)); }
+}
 </style>
 </head>
 <body>
@@ -357,11 +366,11 @@ footer.site-footer a { color: var(--accent); }
       <table>
         <thead><tr><th>項目</th><th class="num">月末に退職</th><th class="num">前日に退職</th></tr></thead>
         <tbody>
-          <tr><td>健康保険料（本人負担。子ども・子育て支援金を含む）</td><td class="num">15,120円</td><td class="num">−</td></tr>
-          <tr><td>厚生年金保険料（本人負担 9.15%）</td><td class="num">27,450円</td><td class="num">−</td></tr>
-          <tr><td>国民年金保険料</td><td class="num">−</td><td class="num">17,920円</td></tr>
-          <tr><td>国民健康保険料（1か月分）</td><td class="num">−</td><td class="num">26,132円</td></tr>
-          <tr class="total"><td>退職した月の負担</td><td class="num">42,570円</td><td class="num">44,052円</td></tr>
+          <tr><td>健康保険料（本人負担。子ども・子育て支援金を含む）</td><td class="num nw">15,120円</td><td class="num">−</td></tr>
+          <tr><td>厚生年金保険料（本人負担 9.15%）</td><td class="num nw">27,450円</td><td class="num">−</td></tr>
+          <tr><td>国民年金保険料</td><td class="num">−</td><td class="num nw">17,920円</td></tr>
+          <tr><td>国民健康保険料（1か月分）</td><td class="num">−</td><td class="num nw">26,132円</td></tr>
+          <tr class="total"><td>退職した月の負担</td><td class="num nw">42,570円</td><td class="num nw">44,052円</td></tr>
         </tbody>
       </table>
     </div>
